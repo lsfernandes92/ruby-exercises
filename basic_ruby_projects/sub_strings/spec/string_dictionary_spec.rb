@@ -1,8 +1,8 @@
 require 'spec_helper'
 require_relative '../string_dictionary'
 
-RSpec.describe 'Substrings basic project' do
-  subject { StringDictionary.new(sentence, dictionary) }
+RSpec.describe StringDictionary do
+  subject { described_class.new(sentence, dictionary) }
 
   context '#substrings' do
     let(:dictionary) do
