@@ -1,8 +1,8 @@
 require 'spec_helper'
-require_relative '../string'
+require_relative '../string_dictionary'
 
 RSpec.describe 'Substrings basic project' do
-  subject { String }
+  subject { StringDictionary.new(sentence, dictionary) }
 
   context '#substrings' do
     let(:dictionary) do
@@ -28,9 +28,7 @@ RSpec.describe 'Substrings basic project' do
       let(:sentence) { 'below' }
 
       it 'returns a hash listing each substring found and how many times was found' do
-        expect(
-          subject.substrings(sentence, dictionary)
-        ).to eq({ "below" => 1, "low" => 1 })
+        expect(subject.substrings).to eq({ "below" => 1, "low" => 1 })
       end
     end
 
@@ -38,9 +36,7 @@ RSpec.describe 'Substrings basic project' do
       let(:sentence) { "Howdy partner, sit down! How's it going?" }
 
       it 'returns a hash listing each substring found and how many times was found' do
-        expect(
-          subject.substrings(sentence, dictionary)
-        ).to eq(
+        expect(subject.substrings).to eq(
           {
            "down" => 1,
            "go" => 1,
