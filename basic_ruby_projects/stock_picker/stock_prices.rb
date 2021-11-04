@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class StockPrices
   attr_reader :stock_prices
 
@@ -11,11 +13,11 @@ class StockPrices
   def profit_picker
     sorted_stock_prices.each do |min_price|
       stock_prices[stock_price_day(min_price)...stock_prices_length].each do |max_price|
-        if better_profit?(max_price, min_price)
-          @profit = calculate_profit(max_price, min_price)
-          @best_buy_day = stock_price_day(min_price)
-          @best_sell_day = stock_price_day(max_price)
-        end
+        next unless better_profit?(max_price, min_price)
+
+        @profit = calculate_profit(max_price, min_price)
+        @best_buy_day = stock_price_day(min_price)
+        @best_sell_day = stock_price_day(max_price)
       end
     end
 
