@@ -1,10 +1,13 @@
+# frozen_string_literal: true
+
 class BubbleSort
   class << self
     def sort(numbers)
       raise 'Please only numbers can be sorted' unless numbers.is_a?(Array)
+
       unsorted = true
 
-      while unsorted do
+      while unsorted
         unsorted = false
         (0..numbers.size - 1).each do |i|
           next if i == numbers.size - 1

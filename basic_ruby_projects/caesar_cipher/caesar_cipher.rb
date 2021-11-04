@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CaesarCipher
   class << self
     def encode(string_to_encode, shift_factor)

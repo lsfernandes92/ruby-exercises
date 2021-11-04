@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 require_relative '../caesar_cipher'
 
@@ -19,17 +21,17 @@ RSpec.describe 'Cryptography basic project' do
   context 'with invalid arguments' do
     context 'when is not a string to be encode' do
       it 'should raise error' do
-        expect {
+        expect do
           subject.encode(1, -5)
-        }.to raise_error('Please ensure to input a String to be encode')
+        end.to raise_error('Please ensure to input a String to be encode')
       end
     end
 
     context 'when shift factor is not an Integer' do
       it 'should raise error' do
-        expect {
+        expect do
           subject.encode('What a string!', '')
-        }.to raise_error('Please ensure that shift factor is an Integer')
+        end.to raise_error('Please ensure that shift factor is an Integer')
       end
     end
   end
