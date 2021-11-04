@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class StringDictionary
   attr_reader :sentence, :dictionary
 
@@ -9,12 +11,8 @@ class StringDictionary
   def substrings
     sentence.downcase!
 
-    dictionary.reduce(Hash.new(0)) do |hash, word|
-      if word_include_in_sentence?(word)
-        hash[word] = count_word_in_sentence(word)
-      end
-
-      hash
+    dictionary.each_with_object(Hash.new(0)) do |word, hash|
+      hash[word] = count_word_in_sentence(word) if word_include_in_sentence?(word)
     end
   end
 

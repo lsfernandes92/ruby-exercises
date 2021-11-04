@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 require_relative '../string_dictionary'
 
@@ -6,21 +8,21 @@ RSpec.describe StringDictionary do
 
   context '#substrings' do
     let(:dictionary) do
-      [
-        "below",
-        "down",
-        "go",
-        "going",
-        "horn",
-        "how",
-        "howdy",
-        "it",
-        "i",
-        "low",
-        "own",
-        "part",
-        "partner",
-        "sit"
+      %w[
+        below
+        down
+        go
+        going
+        horn
+        how
+        howdy
+        it
+        i
+        low
+        own
+        part
+        partner
+        sit
       ]
     end
 
@@ -28,7 +30,7 @@ RSpec.describe StringDictionary do
       let(:sentence) { 'below' }
 
       it 'returns a hash listing each substring found and how many times was found' do
-        expect(subject.substrings).to eq({ "below" => 1, "low" => 1 })
+        expect(subject.substrings).to eq({ 'below' => 1, 'low' => 1 })
       end
     end
 
@@ -38,17 +40,17 @@ RSpec.describe StringDictionary do
       it 'returns a hash listing each substring found and how many times was found' do
         expect(subject.substrings).to eq(
           {
-           "down" => 1,
-           "go" => 1,
-           "going" => 1,
-           "how" => 2,
-           "howdy" => 1,
-           "it" => 2,
-           "i" => 3,
-           "own" => 1,
-           "part" => 1,
-           "partner" => 1,
-           "sit" => 1
+            'down' => 1,
+            'go' => 1,
+            'going' => 1,
+            'how' => 2,
+            'howdy' => 1,
+            'it' => 2,
+            'i' => 3,
+            'own' => 1,
+            'part' => 1,
+            'partner' => 1,
+            'sit' => 1
           }
         )
       end
